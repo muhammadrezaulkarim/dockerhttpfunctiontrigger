@@ -28,10 +28,9 @@ RUN apk add --no-cache \
         make \
         musl-dev \
         curl \
-      
+        libffi \
   && pip install --no-cache-dir -r requirements.txt \
   && pip install kafka-python \
-  && pip install cffi \
   && pip install multiprocessing-logging \
   && pip install docker[tls] \
   && rm -rf /var/cache/apk/* 
