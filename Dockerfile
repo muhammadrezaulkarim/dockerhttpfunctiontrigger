@@ -1,4 +1,4 @@
-FROM python:3.6.6-alpine
+FROM python:3.6.6-alpine3.6
 
 ARG CACHEBUST=1
 
@@ -31,7 +31,7 @@ RUN apk add --no-cache \
       
   && pip install --no-cache-dir -r requirements.txt \
   && pip install kafka-python \
-  && pip install cffi
+  && pip install cffi \
   && pip install multiprocessing-logging \
   && pip install docker[tls] \
   && rm -rf /var/cache/apk/* 
