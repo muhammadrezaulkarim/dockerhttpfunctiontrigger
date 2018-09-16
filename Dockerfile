@@ -29,6 +29,7 @@ RUN apk add --no-cache \
         musl-dev \
         curl \
         libffi \
+        libffi-dev \
   && pip install --no-cache-dir -r requirements.txt \
   && pip install kafka-python \
   && pip install multiprocessing-logging \
