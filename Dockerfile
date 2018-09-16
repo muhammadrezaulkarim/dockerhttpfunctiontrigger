@@ -28,9 +28,9 @@ RUN apk add --no-cache \
         curl \
       
   && pip install --no-cache-dir -r requirements.txt \
-  && pip install kafka-python && \
-  && pip install multiprocessing-logging && \
-  && pip install docker[tls] && \
+  && pip install kafka-python \
+  && pip install multiprocessing-logging \
+  && pip install docker[tls] \
   && rm -rf /var/cache/apk/* 
 
 CMD ["/usr/bin/python", "functiontrigger/functiontrigger.py"]
