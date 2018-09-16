@@ -1,4 +1,4 @@
-FROM 3.6-alpine3.6
+FROM 3.6.6-alpine
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
