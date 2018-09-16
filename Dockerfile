@@ -36,4 +36,4 @@ RUN apk add --no-cache \
   && pip install docker[tls] \
   && rm -rf /var/cache/apk/* 
 
-CMD ["/usr/bin/python", "functiontrigger/functiontrigger.py"]
+CMD ["/usr/local/bin/python", "functiontrigger/functiontrigger.py"]
