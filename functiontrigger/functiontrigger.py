@@ -92,7 +92,9 @@ class Functions(object):
                    service_labels = service_spec['Labels']
                    
                    #if service_labels['ftrigger.kafka']=='true' and service_labels['com.docker.stack.namespace'] == self._stack_namespace:
-                   if service_labels['ftrigger.kafka']=='true':   
+                   kafka_triggered = service_labels.get('ftrigger.kafka')   
+                   if kafka_triggered and kafka_triggered =='true':   
+                      
                       function = {}
                       function['name'] = service_name
                       funtions['labels'] = service_labels
