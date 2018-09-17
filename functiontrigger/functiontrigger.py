@@ -97,7 +97,7 @@ class Functions(object):
                       
                       function = {}
                       function['name'] = service_name
-                      funtions['labels'] = service_labels
+                      funtion['labels'] = service_labels
                       function_list.append(function)
         
         log.debug(str(function_list))
