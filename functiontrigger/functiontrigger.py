@@ -76,7 +76,7 @@ class Functions(object):
         function_list = []
         
         for service in client.services.list():
-            #<Service: 27fyq6peb4>
+            #Format: <Service: 27fyq6peb4>
             service_str = str(service)
             firstpart, secondpart = service_str.split(':')
             secondpart = secondpart.strip()
@@ -97,7 +97,7 @@ class Functions(object):
                       
                       function = {}
                       function['name'] = service_name
-                      funtion['labels'] = service_labels
+                      function['labels'] = service_labels
                       function_list.append(function)
         
         log.debug(str(function_list))
