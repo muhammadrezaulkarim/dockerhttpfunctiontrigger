@@ -21,34 +21,34 @@ class Functions(object):
         self._label = os.getenv('TRIGGER_LABEL', label)
         self._name = os.getenv('TRIGGER_NAME', name)
         self._register_label = f'{label}.{name}'
-
+    
     @property
     def label(self):
         return self._label
-
+    
     @property
     def name(self):
         return self._name
-
+    
     def refresh(self, force=False):
-        if not force and time.time() - self.last_refresh < self.refresh_interval:
-            return [], [], []
-
+        #if not force and time.time() - self.last_refresh < self.refresh_interval:
+            #return [], [], []
+    
         add_functions = []
         update_functions = []
         remove_functions = []
-
+    
         functions = self.get_docker_swarm_function_list():
         #functions = self.gateway.get(self._gateway_base + '/system/functions').json()
         #if self._stack_namespace:
             #functions = filter(lambda f: f.get('labels', {}).get('com.docker.stack.namespace') == self._stack_namespace,
                                #functions)
         #functions = list(filter(lambda f: self._register_label in f.get('labels', {}), functions))
-
+     
         # Scan for new and updated functions
         for function in functions:
             existing_function = self._functions.get(function['name'])
-
+    
             if not existing_function:
                 # register a new function
                 log.debug(f'Add function: {function["name"]}')
@@ -60,13 +60,13 @@ class Functions(object):
                 log.debug(f'Update function: {function["name"]}')
                 update_functions.append(function)
                 self._functions[function['name']] = function
-
+    
         # Scan for removed functions
         for function_name in set(self._functions.keys()) - set([f['name'] for f in functions]):
             function = self._functions.pop(function_name)
             log.debug(f'Remove function: {function["name"]}')
             remove_functions.append(function)
-
+    
         self.last_refresh = time.time()
         return add_functions, update_functions, remove_functions
     
@@ -100,6 +100,9 @@ class Functions(object):
         
         log.debug(str(function_list))
         return function_list      
- 
-     
+   
+    if(__name__ == "__main__"):
+        log.debug('In main method')
+        obj = Functions('ftrigger', None, 5) 
+        obj.refresh(False)
 
