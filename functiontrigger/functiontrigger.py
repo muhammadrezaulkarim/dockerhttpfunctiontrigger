@@ -38,7 +38,7 @@ class Functions(object):
         update_functions = []
         remove_functions = []
     
-        functions = self.get_docker_swarm_function_list():
+        functions = self.get_docker_swarm_function_list()
         #functions = self.gateway.get(self._gateway_base + '/system/functions').json()
         #if self._stack_namespace:
             #functions = filter(lambda f: f.get('labels', {}).get('com.docker.stack.namespace') == self._stack_namespace,
