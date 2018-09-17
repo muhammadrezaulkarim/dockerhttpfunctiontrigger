@@ -102,6 +102,7 @@ class Functions(object):
         return function_list      
    
     if(__name__ == "__main__"):
+        from functiontrigger import Functions
         log.debug('In main method')
         obj = Functions('ftrigger', None, 5) 
         obj.refresh(False)
